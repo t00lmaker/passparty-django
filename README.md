@@ -139,6 +139,17 @@ Note que na lista aplicações que indica que todas as migrations foram aplicada
 
 Outra coisa a se notar é que as tabelas são criadas com o nome da aplicação na frente do nome da tabela. 
 
+## Admin 
+
+
+Você pode criar um usuario super admin
+
+```sh
+python3 manage.py createsuperuser
+```
+
+Será utilizado para entrar no admin do django em locahost:8000/admin.
+
 
 ## MTV - Model Template View
 
