@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     
     'preferences.apps.PreferencesConfig',
-    'guests.apps.GuestsConfig',
+    'events.apps.EventsConfig',
 ]
 
 MIDDLEWARE = [
