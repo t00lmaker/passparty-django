@@ -151,6 +151,26 @@ python3 manage.py createsuperuser
 Será utilizado para entrar no admin do django em locahost:8000/admin.
 
 
+## Heroku Deploy
+
+1. Create files: 
+  - Procfile
+  - Atualize requirements.txt
+  - runtime.txt 
+
+2. Altere Settings conforme [esse modelo](https://github.com/heroku/python-getting-started/blob/main/gettingstarted/settings.py)
+
+3. Add add on de database postgres.
+ 
+```sh
+ heroku addons:create heroku-postgresql:mini
+```
+
+4. Entre no dyno e rode os scripts de criação de tabelas de banco
+```sh
+ heroku run bash
+```sh
+
 ## MTV - Model Template View
 
 Esse padrão utilizado pelo Django para seu fluxo de aplicação.
