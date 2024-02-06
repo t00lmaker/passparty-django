@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from events.views import EventViewSet
+from events.views import EventViewSet, GuestViewSet
 
 from rest_framework import routers
 from rest_framework_simplejwt.views import (
@@ -27,6 +27,7 @@ from rest_framework_simplejwt.views import (
 
 router = routers.DefaultRouter()
 router.register(r'events', EventViewSet)
+router.register(r'guests', GuestViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -1,10 +1,10 @@
-from .models import Event
+from .models import Event, Guest, Confirmation
 from rest_framework import viewsets, permissions
 from rest_framework.decorators import action
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from .serializers import EventSerializer
+from .serializers import EventSerializer, GuestSerializer, ConfirmationSerializer
 
 
 class EventViewSet(viewsets.ModelViewSet):
@@ -25,6 +25,34 @@ class EventViewSet(viewsets.ModelViewSet):
         try:
             event = Event.objects.get(pk=pk)
         except Event.DoesNotExist:
-            return HttpResponse(status=404)
+            return JsonResponse({"detail": "Event not found."}, status=404)
         
         return JsonResponse(list(event.guests.values()), safe=False)
+    
+class GuestViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows all events to be viewed or edited.
+    """
+    queryset = Guest.objects.all().order_by('-name')
+    serializer_class = GuestSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+
+    @csrf_exempt
+    @action(detail=True, methods=["post"], name="Confirm Guests in event")
+    def confirm(self, request,  pk=None):
+        """
+        API endpoint that allows confirm guest in event.
+        """
+        try:
+            guest = Guest.objects.get(pk=pk)
+        except Guest.DoesNotExist:
+            return JsonResponse({"detail": "Guest not found."}, status=404)
+        
+        if hasattr(guest, 'confirmation'):
+            return JsonResponse({"detail": "Guest already has a confirmation"}, status=420)
+        
+        confirmation = Confirmation.objects.create(details=request.data.get('details'), event=guest.event, guest=guest)
+        serializer = ConfirmationSerializer(confirmation)
+        return JsonResponse(serializer.data, status=200)
+        
