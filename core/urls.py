@@ -28,7 +28,6 @@ from rest_framework_simplejwt.views import (
 router = routers.DefaultRouter()
 router.register(r'events', EventViewSet)
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
