@@ -10,7 +10,7 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
 class GuestSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Guest
-        fields = ['name', 'phone', 'email', 'event', 'confirmation', 'created_at', 'updated_at']
+        fields = ['name', 'phone', 'email', 'event', 'created_at', 'updated_at']
 
 class ConfirmationSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
