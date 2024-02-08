@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import RegexValidator
 from django.contrib.auth.models import (
     BaseUserManager, AbstractUser
 )
@@ -84,10 +85,25 @@ class User(AbstractUser):
 class Preferences(models.Model):
     readonly_fields = ("created_at", "updated_at")
     client = models.ForeignKey(Client,related_name='preferences',  on_delete=models.CASCADE)
-    key = models.CharField(max_length=40, null=False, blank=False)
+    key = models.CharField(
+        max_length=40, 
+        null=False, 
+        blank=False,
+        validators=[
+            RegexValidator(
+                regex='^[A-Z0-9]*$',
+                message='Key should not contain spaces or downcase.',
+                code='invalid_key'
+            ),
+        ]
+    )
     value = models.CharField(max_length=250, null=False, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def save(self, *args, **kwargs):
+        self.key = self.key.replace(" ", "").upper()
+        super().save(*args, **kwargs)
     
     def __str__(self):
         return self.key
@@ -96,3 +112,4 @@ class Preferences(models.Model):
         verbose_name = "Preference"
         verbose_name_plural = "Preferences"
         ordering = ["-created_at"]
+        unique_together = ('client', 'key',)
