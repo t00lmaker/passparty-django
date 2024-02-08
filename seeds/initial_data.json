@@ -1,0 +1,305 @@
+[
+  {
+    "model": "events.event",
+    "pk": 1,
+    "fields": {
+      "name": "Seu Rock",
+      "description": "Evento de Rock em Teresina",
+      "cover_image": "https://rollingstone.uol.com.br/media/_versions/legacy/2015/img-1031662-2-nevermind-nirvana_lg.jpg",
+      "event_at": "2024-02-29",
+      "active": true,
+      "client": 1,
+      "finished_at": null,
+      "created_at": "2024-02-08T00:21:59.871Z",
+      "updated_at": "2024-02-08T00:21:59.871Z"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 2,
+    "fields": {
+      "name": "Tardezinha",
+      "description": "TIaguinho em um show incrível",
+      "cover_image": "https://media.architecturaldigest.com/photos/5890e0a13926c56a61e9a044/master/w_2240%2Cc_limit/Artist-Designed%2520Album%2520Covers%25201.jpg",
+      "event_at": "2024-02-27",
+      "active": true,
+      "client": 2,
+      "finished_at": null,
+      "created_at": "2024-02-08T00:25:01.166Z",
+      "updated_at": "2024-02-08T00:25:01.166Z"
+    }
+  },
+  {
+    "model": "events.guest",
+    "pk": 1,
+    "fields": {
+      "name": "Luan Machado Pontes",
+      "phone": "86981454515",
+      "email": "luanpontes@gmail.com",
+      "active": true,
+      "salt": null,
+      "event": 1,
+      "created_at": "2024-02-08T00:40:24.324Z",
+      "updated_at": "2024-02-08T00:40:24.324Z"
+    }
+  },
+  {
+    "model": "events.guest",
+    "pk": 2,
+    "fields": {
+      "name": "Jose Gota",
+      "phone": "33234556",
+      "email": "josegota@mmail.com",
+      "active": true,
+      "salt": null,
+      "event": 2,
+      "created_at": "2024-02-08T00:40:53.958Z",
+      "updated_at": "2024-02-08T00:40:53.958Z"
+    }
+  },
+  {
+    "model": "events.guest",
+    "pk": 3,
+    "fields": {
+      "name": "Carlos Miguel",
+      "phone": "9998887766",
+      "email": "user_cliente@gmm.com",
+      "active": true,
+      "salt": null,
+      "event": 1,
+      "created_at": "2024-02-08T00:41:21.928Z",
+      "updated_at": "2024-02-08T00:41:21.929Z"
+    }
+  },
+  {
+    "model": "preferences.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$auHJ3sXCGhTxLwvl5ch1zs$EIV8ZrVB28wv68CwYVw4CSoGJObFaelEfSaZxr2Zdwg=",
+      "last_login": "2024-02-08T00:46:12.418Z",
+      "is_superuser": true,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-02-07T22:29:00.364Z",
+      "username": "luanpontes2@gmail.com",
+      "email": "luanpontes2@gmail.com",
+      "role": "user",
+      "client": null,
+      "created_at": "2024-02-07T22:29:00.486Z",
+      "updated_at": "2024-02-07T22:29:00.487Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "preferences.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$EL0KYXA5tMSg5YDnUFfX9t$x7fzwAWtVOIABSeM05fOAYfm5CwkcoSn5zSWJUgO1Zg=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-02-07T22:37:43Z",
+      "username": "p1",
+      "email": "user_cliente@gmm.com",
+      "role": "admin",
+      "client": 1,
+      "created_at": "2024-02-07T22:37:43.396Z",
+      "updated_at": "2024-02-07T22:40:31.517Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "preferences.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$JBkhPYjx4azhPjwDKc0UU1$iNILf78j74RLBrSXQQQsIsAYwpYxm2+TBynBi39oG3o=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-02-07T23:40:20Z",
+      "username": "adminkalor",
+      "email": "contatoadmin@kalorproducoes.com",
+      "role": "admin",
+      "client": 2,
+      "created_at": "2024-02-07T23:40:20.880Z",
+      "updated_at": "2024-02-07T23:44:02.174Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "preferences.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$6XrmueplFzUOP3Fe2vyCGf$eUDNJJ5ZXMqlQ1M9Fkfs97XRilug2bw1hxK2Xh605mQ=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-02-07T23:40:54Z",
+      "username": "kalor",
+      "email": "contato@kalorproducoes.com",
+      "role": "admin",
+      "client": 2,
+      "created_at": "2024-02-07T23:40:54.603Z",
+      "updated_at": "2024-02-07T23:40:58.583Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "preferences.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$xM54c0b4DQb2H1kSL1YCY7$jQKs+zb/EwxOVvyeIE6DORuvPK9J4ttW964j/cgqeLw=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-02-07T23:42:08.297Z",
+      "username": "repeceptionista",
+      "email": "primeiro_user_cliente@gmm.com",
+      "role": "user",
+      "client": 1,
+      "created_at": "2024-02-07T23:42:08.432Z",
+      "updated_at": "2024-02-07T23:42:08.432Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "preferences.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$ZRE7D0g3QPEWszMCRqb0cS$3CuA8f2wrTlHeWIahSVf0DNnikmmd8HGdPXq7Kop35s=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-02-07T23:43:11Z",
+      "username": "adminblk",
+      "email": "admin@blk.com",
+      "role": "admin",
+      "client": 1,
+      "created_at": "2024-02-07T23:43:11.711Z",
+      "updated_at": "2024-02-07T23:43:14.864Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "preferences.user",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$720000$iaZEXXpJ5PdbRwhQ4N4556$fkKuhWijaWkBoeopwdKHfHR70AVpnhDuMTMCS20X7Do=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-02-07T23:44:52Z",
+      "username": "receptionistakalor",
+      "email": "recepcao@xn--kalorproduces-emb.com",
+      "role": "user",
+      "client": 2,
+      "created_at": "2024-02-07T23:44:52.506Z",
+      "updated_at": "2024-02-07T23:44:56.658Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "preferences.preferences",
+    "pk": 3,
+    "fields": {
+      "client": 1,
+      "key": "IMAGE",
+      "value": "https://images.pexels.com/photos/268941/pexels-photo-268941.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "created_at": "2024-02-07T23:26:53.677Z",
+      "updated_at": "2024-02-07T23:26:53.677Z"
+    }
+  },
+  {
+    "model": "preferences.preferences",
+    "pk": 4,
+    "fields": {
+      "client": 2,
+      "key": "COLOR",
+      "value": "#fff",
+      "created_at": "2024-02-07T23:27:17.833Z",
+      "updated_at": "2024-02-07T23:27:34.076Z"
+    }
+  },
+  {
+    "model": "preferences.preferences",
+    "pk": 5,
+    "fields": {
+      "client": 2,
+      "key": "IMAGE",
+      "value": "https://media.gettyimages.com/id/1456523586/pt/vetorial/photo-frame-digital-marketing-agency-and-corporate-social-media-post-template.jpg?s=2048x2048&w=gi&k=20&c=FieTLAN1XzXOxcf9Jh1WR8f5pPBLjeZf0B6imOFwU8k=",
+      "created_at": "2024-02-07T23:28:18.677Z",
+      "updated_at": "2024-02-07T23:28:18.677Z"
+    }
+  },
+  {
+    "model": "preferences.preferences",
+    "pk": 6,
+    "fields": {
+      "client": 2,
+      "key": "OUTRA",
+      "value": "oowwWQ",
+      "created_at": "2024-02-07T23:28:42.614Z",
+      "updated_at": "2024-02-07T23:28:42.614Z"
+    }
+  },
+  {
+    "model": "preferences.preferences",
+    "pk": 7,
+    "fields": {
+      "client": 1,
+      "key": "COLOR",
+      "value": "VLAOR",
+      "created_at": "2024-02-07T23:32:50.565Z",
+      "updated_at": "2024-02-07T23:32:50.565Z"
+    }
+  },
+  {
+    "model": "preferences.client",
+    "pk": 1,
+    "fields": {
+      "name": "BLK Eventos",
+      "phone": "86981454515",
+      "email": "contatoadmin@blk.com",
+      "created_at": "2024-02-07T22:33:26.013Z",
+      "updated_at": "2024-02-07T23:24:24.659Z"
+    }
+  },
+  {
+    "model": "preferences.client",
+    "pk": 2,
+    "fields": {
+      "name": "Kalor Produções",
+      "phone": "33234556",
+      "email": "contato@kalorproducoes.com",
+      "created_at": "2024-02-07T23:25:11.127Z",
+      "updated_at": "2024-02-07T23:25:11.127Z"
+    }
+  }
+]
