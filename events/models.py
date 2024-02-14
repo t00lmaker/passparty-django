@@ -1,6 +1,20 @@
 from django.db import models
 from preferences.models import Client
 
+
+class Responsible(models.Model):
+  readonly_fields = ("created_at", "updated_at")
+  name = models.CharField(max_length=40, null=False, blank=False)
+  phone = models.CharField(max_length=40, null=False, blank=False)
+  details = models.CharField(max_length=250)
+  email = models.CharField(max_length=40)
+  active = models.BooleanField(default=True)
+  created_at = models.DateTimeField(auto_now_add=True)
+  updated_at = models.DateTimeField(auto_now=True)
+
+  def __str__(self):
+    return self.name
+
 class Event(models.Model):
   readonly_fields = ("created_at", "updated_at")
   name = models.CharField(max_length=40, null=False, blank=False)
@@ -8,7 +22,10 @@ class Event(models.Model):
   cover_image = models.CharField(max_length=250, null=True, blank=True)
   event_at = models.DateField(null=True)
   active = models.BooleanField(default=True)
+  started = models.BooleanField(default=False)
+
   client = models.ForeignKey(Client, on_delete=models.CASCADE, null=True, blank=True, related_name='events')
+  responsible = models.ForeignKey(Responsible, on_delete=models.CASCADE, null=True, blank=True, related_name='events')
 
   finished_at = models.DateField(null=True, blank=True)
   created_at = models.DateTimeField(auto_now_add=True)
