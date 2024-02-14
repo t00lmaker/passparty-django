@@ -46,7 +46,6 @@ class GuestSerializer(serializers.HyperlinkedModelSerializer):
             'name', 
             'phone', 
             'email',
-            'event',
             'confirmation', 
             'created_at', 
             'updated_at'

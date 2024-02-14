@@ -35,7 +35,8 @@ class EventViewSet(viewsets.ModelViewSet):
         except Exception as e:
             return JsonResponse({"detail": str(e)}, status=420)
         
-        return JsonResponse(list(event.guests.values()), safe=False)
+        serializer = GuestSerializer(event.guests.all(), many=True)
+        return JsonResponse(serializer.data, safe=False)
     
 class GuestViewSet(viewsets.ModelViewSet):
     """
