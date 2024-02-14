@@ -81,6 +81,10 @@ class User(AbstractUser):
 
   def __str__(self):
       return self.email
+  
+  def validate_client(self, client):
+    if self.client != client:
+      raise ValueError('Client does not match')
 
 class Preferences(models.Model):
     readonly_fields = ("created_at", "updated_at")

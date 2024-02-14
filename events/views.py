@@ -16,6 +16,10 @@ class EventViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
+    def get_queryset(self):
+        user_client = self.request.user.client
+        return Event.objects.filter(client=user_client)
+
     @csrf_exempt
     @action(detail=True, methods=["get"], name="Guests from event")
     def guests(self, request,  pk=None):
@@ -24,8 +28,12 @@ class EventViewSet(viewsets.ModelViewSet):
         """
         try:
             event = Event.objects.get(pk=pk)
+            user = request.user
+            user.validate_client(event.client)
         except Event.DoesNotExist:
             return JsonResponse({"detail": "Event not found."}, status=404)
+        except Exception as e:
+            return JsonResponse({"detail": str(e)}, status=420)
         
         return JsonResponse(list(event.guests.values()), safe=False)
     
@@ -37,6 +45,9 @@ class GuestViewSet(viewsets.ModelViewSet):
     serializer_class = GuestSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+    def get_queryset(self):
+        user_client = self.request.user.client
+        return Guest.objects.filter(event__client=user_client)
 
     @csrf_exempt
     @action(detail=True, methods=["post"], name="Confirm Guests in event")
